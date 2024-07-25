@@ -17,6 +17,7 @@ async function fetchProducts(){
         console.log(error);
     }
 }
+
 fetchProducts();
 
 function changeButton(product){
@@ -122,6 +123,10 @@ function createProductItem(category, imageSrc, name, price){
 function renderCart() {
     const cartBox = document.getElementById('my-order');
     cartBox.innerHTML = '';
+    let sum = 0;
+    let yourCart = document.createElement('h1');
+    yourCart.innerText = `Your Cart(${cart.reduce((sum, item) => sum + item.quantity, 0)})`;
+    cartBox.append(yourCart);
     cart.forEach((product) => {
         const cartItemContainer = document.createElement('div');
         cartItemContainer.className = "cart-item-container";
@@ -149,6 +154,7 @@ function renderCart() {
         cancelIcon.src = './assets/images/icon-remove-item.svg';
         cancelIcon.alt = 'Cancel Icon';
         cancelationButton.append(cancelIcon);
+        sum += product.price*product.quantity;
 
         priceBox.append(amountOfProduct);
         priceBox.append(priceItem);
@@ -162,8 +168,50 @@ function renderCart() {
 
         cartBox.append(cartItemContainer);
     });
-}
+    if(cart.length > 0){
+        let orderTotal = document.createElement('div');
+        orderTotal.className = 'order-total';
 
+        
+        let priceTitleItem = document.createElement('div');
+        priceTitleItem.className = 'price-title-item';
+        let priceTitle = document.createElement('p');
+        priceTitle.innerText = 'Order Total';
+
+        let totalPriceItem = document.createElement('div');
+        totalPriceItem.className = 'total-price-item';
+        let totalPrice = document.createElement('p');
+        totalPrice.innerText = '$' + sum;
+
+        totalPriceItem.append(totalPrice);
+        priceTitleItem.append(priceTitle);
+        orderTotal.append(priceTitleItem);
+        orderTotal.append(totalPriceItem);
+        cartBox.append(orderTotal);
+
+        let aboutDelivery = document.createElement('div');
+        aboutDelivery.className = 'about-delivery';
+
+        let deliveryIcon = document.createElement('img');
+        deliveryIcon.src = './assets/images/icon-carbon-neutral.svg';
+        deliveryIcon.alt = 'Carbon Neutral icon';
+        let deliveryText = document.createElement('p');
+        deliveryText.innerHTML = 'This is a <span class="bold-text">carbon-neutral</span> delivery';
+        
+        aboutDelivery.append(deliveryIcon);
+        aboutDelivery.append(deliveryText);
+        cartBox.append(aboutDelivery);
+    } else{
+        let emptyImage = document.createElement('img');
+        emptyImage.src = './assets/images/illustration-empty-cart.svg';
+        let emptyText = document.createElement('p');
+        emptyText.innerText = 'Your added items will appear here';
+
+        cartBox.append(emptyImage);
+        cartBox.append(emptyText);
+    }
+}
+renderCart();
 function addToCart(product){
     const cartItem = cart.find(item => item.name === product.name);
     if(cartItem){
