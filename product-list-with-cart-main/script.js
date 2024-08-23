@@ -298,6 +298,7 @@ function showConfirmationAlert() {
     confirmationAlert.append(startNewOrderButton);
 
     confirmationAlert.style.display = 'block';
+    document.getElementById('overlay').style.display = 'block';
 }
 function addToCart(product){
     const cartItem = cart.find(item => item.name === product.name);
