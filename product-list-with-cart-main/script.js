@@ -21,7 +21,9 @@ async function fetchProducts(){
 fetchProducts();
 
 function changeButton(product){
+
     let button = document.getElementById(`change-button-${product.name}`);
+    button.classList = "change-button";
     button.innerHTML = '';
 
     let removeItem = document.createElement('div');
@@ -99,22 +101,27 @@ function createProductItem(category, imageSrc, name, price, imageForConfirmation
     priceFull.innerText = '$' + price;
     priceItem.append(priceFull);
 
-    let buttonInitial = document.createElement('p');
-    buttonInitial.id = `change-button-${name}`;
+    let buttonInitialBox = document.createElement('div');
+    buttonInitialBox.classList = "initial-button";
+    buttonInitialBox.id = `change-button-${name}`;
+
     const icon = document.createElement('img');
     icon.src = './assets/images/icon-add-to-cart.svg';
     icon.alt = 'Add to cart icon';
-    const text = document.createTextNode('Add to cart');
-    buttonInitial.appendChild(icon);
-    buttonInitial.appendChild(text);
+    let textButtonContainer = document.createElement('div');
+    let buttonInitial = document.createElement('p');
+    buttonInitial.innerText = "Add to cart";
+    textButtonContainer.append(buttonInitial);
+    buttonInitialBox.appendChild(icon);
+    buttonInitialBox.append(textButtonContainer);
 
-    listItemContainer.append(categoryItem);
     listItemContainer.append(imageItem);
+    listItemContainer.append(buttonInitialBox);
+    listItemContainer.append(categoryItem);
     listItemContainer.append(nameItem);
     listItemContainer.append(priceItem);
-    listItemContainer.append(buttonInitial);
 
-    buttonInitial.onclick = () => {
+    buttonInitialBox.onclick = () => {
         addToCart({ name, price, imageSrc, imageForConfirmation });
     }
     return listItemContainer;
@@ -134,6 +141,7 @@ function renderCart() {
         let cartNameItem = document.createElement('div');
         cartNameItem.className = "cart-name-item";
         let nameItem = document.createElement('p');
+        nameItem.className = "name-item";
         nameItem.innerText = product.name;
         cartNameItem.append(nameItem);
 
@@ -148,7 +156,7 @@ function renderCart() {
         let totalSumItem = document.createElement('p');
         totalSumItem.innerText = '$' + (product.quantity * product.price);
 
-        let cancelationButton = document.createElement('button');
+        let cancelationButton = document.createElement('div');
         cancelationButton.className = 'cancel-button';
         let cancelIcon = document.createElement('img');
         cancelIcon.src = './assets/images/icon-remove-item.svg';
@@ -159,10 +167,11 @@ function renderCart() {
         priceBox.append(amountOfProduct);
         priceBox.append(priceItem);
         priceBox.append(totalSumItem);
-        priceBox.append(cancelationButton);
+        
+        cartNameItem.append(priceBox);
 
         cartItemContainer.append(cartNameItem);
-        cartItemContainer.append(priceBox);
+        cartItemContainer.append(cancelationButton);
 
         cancelationButton.addEventListener('click', () => removeFromCart(product));
 
@@ -324,6 +333,7 @@ function updateCart(product) {
 
 function makeButtonInitial(product){
     let buttonInitial = document.getElementById(`change-button-${product.name}`);
+    buttonInitial.className = "initial-button";
     buttonInitial.innerHTML = '';
 
     const icon = document.createElement('img');

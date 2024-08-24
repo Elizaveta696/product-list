@@ -34,3 +34,123 @@ body{
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
 }
+#list-of-products{
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.list-item-container{
+    flex: 1 1 calc(33.33% - 10px);
+    position: relative;
+}
+
+.image-item img{
+    width: 170px;
+    height: auto;
+    border-radius: 8px;
+}
+#my-order{
+    width: 40%;
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+.main-container{
+    display: flex;
+}
+.cart-item-container{
+    display: flex;
+    align-items: center;
+}
+.cart-name-item p{
+    margin: 2px;
+    
+}
+.cart-price-box{
+    display: flex;
+    
+}
+.name-item{
+    font-weight: 700;
+}
+.change-button{
+    display: flex;
+    align-items: center;
+    background-color: hsl(14, 86%, 42%);
+    border-radius: 30px;
+    margin: 0px;
+    width: 120px;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    height: 38px;
+    border: 2px solid hsl(14, 86%, 42%);
+    
+}
+.change-button p{
+    margin: 10px;
+    width: 40px;
+    color: white;
+
+}
+.remove-icon, .add-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    border: 1px solid white;
+    height: 10px;
+    padding: 5px;
+}
+.initial-button{
+    display: flex;
+    height: 38px;
+    border-radius: 30px;
+    margin: 0px;
+    width: 120px;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid hsl(14, 86%, 42%);
+    background-color: white;
+}
+.initial-button div p{
+    margin: 0px;
+    text-align: center;
+}
+
+
+/* responsiveness */
+
+@media (max-width: 768px) {
+    .list-item-container {
+      flex: 1 1 calc(50% - 10px); /* 2 items per row for smaller screens */
+    }
+  }
+  
+  @media (max-width: 570px) {
+    .main-container{
+        display:block;
+    }
+    .list-item-container {
+      flex: 1 1 calc(100% - 10px); /* 1 item per row for mobile screens */
+
+    }
+    .image-item img{
+        width: 70%;
+        
+    }
+    #list-of-products{
+        width: 100%;
+    }
+    #my-order{
+        width: 100%;
+        position: absolute;
+        top: auto;
+        right: auto;
+    }
+  }
+  
