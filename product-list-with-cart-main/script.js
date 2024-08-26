@@ -2,7 +2,7 @@ let cart = [];
 
 async function fetchProducts(){
     try{
-        const response = await fetch('http://localhost:5000/api/products');
+        const response = await fetch('./data.json');
         if(!response.ok){
             throw new Error(response.status);
         }
@@ -60,6 +60,8 @@ function changeButton(product){
     addIcon.src = './assets/images/icon-increment-quantity.svg';
     addIcon.alt = 'add';
     addItem.append(addIcon);
+    
+    document.getElementById(`my-image-${product.name}`).style.border = "2px solid hsl(14, 86%, 42%)";
 
     addItem.onclick = (e) => {
         e.stopPropagation();
@@ -87,6 +89,7 @@ function createProductItem(category, imageSrc, name, price, imageForConfirmation
     imageItem.className = "image-item";
     const image = document.createElement('img');
     image.src = imageSrc;
+    image.id = `my-image-${name}`;
     imageItem.append(image);
 
     let nameItem = document.createElement('div');
@@ -333,6 +336,7 @@ function updateCart(product) {
 
 function makeButtonInitial(product){
     let buttonInitial = document.getElementById(`change-button-${product.name}`);
+    document.getElementById(`my-image-${product.name}`).style.borderColor = "white";
     buttonInitial.className = "initial-button";
     buttonInitial.innerHTML = '';
 

@@ -1,13 +1,21 @@
 body{
     margin: 0;
     width: 100%;
-    text-align: center;
-    background-color: beige;
+    margin-left: 40px;
+    font-family: 'Rad Had Text', sans-serif;
+    
 }
 
 .bold-text{
-    font-weight: bold;
+    font-weight: 600;
 }
+
+.about-delivery{
+    color: hsl(12, 20%, 44%);
+    display: flex;
+    gap: 5px;
+}
+
 #confirmation-alert{
 
     display: none;
@@ -45,13 +53,32 @@ body{
     position: relative;
 }
 
+.image-item{
+    padding: 7px;
+}
+
+.name-item{
+    font-weight: 600;
+    color: hsl(14, 65%, 9%);
+}
+
+.category-item{
+    color: hsl(7, 20%, 60%);
+}
+.price-item{
+    font-weight: 600;
+    color: hsl(14, 86%, 42%);
+    
+}
+
 .image-item img{
-    width: 170px;
+    width: 100%;
     height: auto;
     border-radius: 8px;
+    border: 2px solid white;
 }
 #my-order{
-    width: 40%;
+    width: 35%;
     position: fixed;
     top: 0;
     right: 0;
@@ -85,13 +112,14 @@ body{
     margin-left: auto;
     margin-right: auto;
     height: 38px;
-    border: 2px solid hsl(14, 86%, 42%);
+    border: 1px solid hsl(14, 86%, 42%);
     
 }
 .change-button p{
     margin: 10px;
     width: 40px;
     color: white;
+    text-align: center;
 
 }
 .remove-icon, .add-icon {
@@ -114,7 +142,7 @@ body{
     align-items: center;
     margin-left: auto;
     margin-right: auto;
-    border: 2px solid hsl(14, 86%, 42%);
+    border: 1px solid hsl(7, 20%, 60%);
     background-color: white;
 }
 .initial-button div p{
@@ -130,19 +158,57 @@ body{
       flex: 1 1 calc(50% - 10px); /* 2 items per row for smaller screens */
     }
   }
+  @media (max-width:530px) {
+    body{
+        margin: 0px;
+    }
+    .main-container{
+        display:block;
+    }
+    .list-item-container {
+        flex: 1 1 calc(100% - 10px); /* 1 item per row for mobile screens */
+        width: 70%;
+    }
+    .list-of-products{
+        display: grid;
+        place-content: center;
+    }
+    .image-item img{
+        max-width: 100%;
+        
+    }
+    .image-item{
+        width: 70%;
+        text-align: centery;
+    }
+
+    #list-of-products{
+        width: 100%;
+    }
+    #my-order{
+        width: 100%;
+        position: absolute;
+        top: auto;
+        right: auto;
+    }
+  }
   
-  @media (max-width: 570px) {
+  @media (max-width: 380px) {
+    body{
+        margin: 0px;
+    }
     .main-container{
         display:block;
     }
     .list-item-container {
       flex: 1 1 calc(100% - 10px); /* 1 item per row for mobile screens */
-
+        width: 100%;
     }
     .image-item img{
-        width: 70%;
+        max-width: 100%;
         
     }
+
     #list-of-products{
         width: 100%;
     }
