@@ -134,7 +134,8 @@ function renderCart() {
     const cartBox = document.getElementById('my-order');
     cartBox.innerHTML = '';
     let sum = 0;
-    let yourCart = document.createElement('h1');
+    let yourCart = document.createElement('h2');
+    yourCart.className ='your-cart';
     yourCart.innerText = `Your Cart(${cart.reduce((sum, item) => sum + item.quantity, 0)})`;
     cartBox.append(yourCart);
     cart.forEach((product) => {
@@ -153,11 +154,15 @@ function renderCart() {
 
         let amountOfProduct = document.createElement('p');
         amountOfProduct.innerText = product.quantity + 'x';
+        amountOfProduct.style.color ="hsl(14, 86%, 42%)";
+        amountOfProduct.style.fontWeight ="600";
 
         let priceItem = document.createElement('p');
-        priceItem.innerText = '@ $' + product.price;
+        priceItem.innerText = '@$' + product.price.toFixed(2);
+        priceItem.style.color ="hsl(7, 20%, 60%)";
         let totalSumItem = document.createElement('p');
-        totalSumItem.innerText = '$' + (product.quantity * product.price);
+        totalSumItem.innerText = '$' + (product.quantity * product.price).toFixed(2);
+        totalSumItem.style.color ="hsl(12, 20%, 44%)";
 
         let cancelationButton = document.createElement('div');
         cancelationButton.className = 'cancel-button';
@@ -193,7 +198,7 @@ function renderCart() {
         let totalPriceItem = document.createElement('div');
         totalPriceItem.className = 'total-price-item';
         let totalPrice = document.createElement('p');
-        totalPrice.innerText = '$' + sum;
+        totalPrice.innerText = '$' + sum.toFixed(2);
 
         totalPriceItem.append(totalPrice);
         priceTitleItem.append(priceTitle);
@@ -214,8 +219,8 @@ function renderCart() {
         aboutDelivery.append(deliveryText);
 
         let confirmOrder = document.createElement('div');
-        confirmOrder.className = 'confirm-order';
         let confirmButton = document.createElement('button');
+        confirmButton.className = 'confirm-order';
         confirmButton.innerText = 'Confirm Order';
         confirmOrder.append(confirmButton);
 

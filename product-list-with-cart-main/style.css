@@ -11,9 +11,10 @@ body{
 }
 
 .about-delivery{
-    color: hsl(12, 20%, 44%);
+    color: hsl(14, 65%, 9%);
     display: flex;
     gap: 5px;
+    justify-content: center;
 }
 
 #confirmation-alert{
@@ -77,29 +78,62 @@ body{
     border-radius: 8px;
     border: 2px solid white;
 }
+.your-cart{
+    color: hsl(14, 86%, 42%);
+}
 #my-order{
     width: 35%;
-    position: fixed;
-    top: 0;
-    right: 0;
+    text-align: center;
+    margin-left: 30px;
+}
+.order-total{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    color: hsl(14, 65%, 9%);
+    padding-left: 15px;
+}
+.total-price-item{
+    padding-right: 10px;
+    font-weight: bold;
+    font-size: 24px;
 }
 .main-container{
     display: flex;
 }
 .cart-item-container{
     display: flex;
+    padding: 10px;
     align-items: center;
+    border-bottom: rgb(243, 243, 243) solid 2px;
+
+}
+.cart-name-item{
+    width: 90%;
 }
 .cart-name-item p{
     margin: 2px;
-    
+    text-align: left;
 }
 .cart-price-box{
     display: flex;
-    
+    margin: 7px;
+    gap: 10px;
+    font-weight: 500;
 }
 .name-item{
     font-weight: 700;
+}
+.cancel-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    border: 1px solid hsl(13, 20%, 52%);
+    height: 10px;
+    padding: 5px;
 }
 .change-button{
     display: flex;
@@ -114,6 +148,21 @@ body{
     height: 38px;
     border: 1px solid hsl(14, 86%, 42%);
     
+}
+.confirm-order{
+    display: flex;
+    align-items: center;
+    background-color: hsl(14, 86%, 42%);
+    border-radius: 30px;
+    margin-top: 20px;
+    width: 160px;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    height: 38px;
+    border: 1px solid hsl(14, 86%, 42%);
+    color: white;
+    font-size: 16px;
 }
 .change-button p{
     margin: 10px;
@@ -149,7 +198,9 @@ body{
     margin: 0px;
     text-align: center;
 }
-
+.desserts{
+    width: fit-content;
+}
 
 /* responsiveness */
 
@@ -190,6 +241,7 @@ body{
         position: absolute;
         top: auto;
         right: auto;
+        padding-right: 20px;
     }
   }
   
@@ -201,7 +253,7 @@ body{
         display:block;
     }
     .list-item-container {
-      flex: 1 1 calc(100% - 10px); /* 1 item per row for mobile screens */
+        flex: 1 1 calc(100% - 10px); /* 1 item per row for mobile screens */
         width: 100%;
     }
     .image-item img{
