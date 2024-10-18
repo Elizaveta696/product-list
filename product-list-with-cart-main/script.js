@@ -153,16 +153,17 @@ function renderCart() {
         priceBox.className = "cart-price-box";
 
         let amountOfProduct = document.createElement('p');
+        amountOfProduct.className="amount-of-product";
         amountOfProduct.innerText = product.quantity + 'x';
-        amountOfProduct.style.color ="hsl(14, 86%, 42%)";
-        amountOfProduct.style.fontWeight ="600";
+
 
         let priceItem = document.createElement('p');
         priceItem.innerText = '@$' + product.price.toFixed(2);
-        priceItem.style.color ="hsl(7, 20%, 60%)";
+        priceItem.className ="confirm-price-item";
+
         let totalSumItem = document.createElement('p');
         totalSumItem.innerText = '$' + (product.quantity * product.price).toFixed(2);
-        totalSumItem.style.color ="hsl(12, 20%, 44%)";
+        totalSumItem.className  ="confirm-total-sum-item";
 
         let cancelationButton = document.createElement('div');
         cancelationButton.className = 'cancel-button';
@@ -251,7 +252,7 @@ function showConfirmationAlert() {
         confirmItemContainer.innerHTML = '';
 
         let confirmedImageItem = document.createElement('div');
-        confirmedImageItem.className = 'confirmed-image-item';
+        confirmedImageItem.className = 'confirm-image-item';
         let imageItself = document.createElement('img');
         imageItself.src = product.imageForConfirmation;
         imageItself.alt = 'Product Image'; 
@@ -260,30 +261,34 @@ function showConfirmationAlert() {
         confirmItemContainer.append(confirmedImageItem);
 
         let confirmedNameItem = document.createElement('div');
-        confirmedNameItem.className = "confirmed-name-item";
-        let nameItem = document.createElement('div');
+        confirmedNameItem.className = "confirm-name-item";
+        let nameItem = document.createElement('p');
         nameItem.innerText = product.name;
         confirmedNameItem.append(nameItem);
 
-        confirmItemContainer.append(confirmedNameItem);
+        
 
         let priceContainer = document.createElement('div');
-        priceContainer.className = 'confirmation-price-container';
+        priceContainer.className = 'confirm-price-container';
 
         let amountOfProduct = document.createElement('p');
         amountOfProduct.innerText = product.quantity + 'x';
+        amountOfProduct.className="amount-of-product";
         priceContainer.append(amountOfProduct);
 
         let priceItem = document.createElement('p');
-        priceItem.innerText = '@ $' + product.price;
+        priceItem.innerText = '@$' + product.price.toFixed(2);
+        priceItem.className ="confirm-price-item";
         priceContainer.append(priceItem);
 
-        confirmItemContainer.append(priceContainer);
+        confirmedNameItem.append(priceContainer)
+        confirmItemContainer.append(confirmedNameItem);
 
         let priceBox = document.createElement('div');
-        priceBox.className = "confirmed-price-box";
+        priceBox.className = "confirm-price-box";
         let totalSumItem = document.createElement('p');
-        totalSumItem.innerText = '$' + (product.quantity * product.price);
+        totalSumItem.innerText = '$' + (product.quantity * product.price).toFixed(2);
+        totalSumItem.className  ="confirm-total-sum-item"
         priceBox.append(totalSumItem);
 
         confirmItemContainer.append(priceBox);
@@ -298,9 +303,9 @@ function showConfirmationAlert() {
     let sumTitle = document.createElement('p');
     sumTitle.innerText = "Order Total";
     sumTitle.className = 'sum-title';
-    let wholeSumItem = document.createElement('p');
+    let wholeSumItem = document.createElement('h2');
     wholeSumItem.className = 'whole-sum-item';
-    wholeSumItem.innerText = '$' + wholeSum;
+    wholeSumItem.innerText = '$' + wholeSum.toFixed(2);
     
     wholeSumContainer.append(sumTitle);
     wholeSumContainer.append(wholeSumItem);

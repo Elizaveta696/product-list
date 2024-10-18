@@ -25,14 +25,86 @@ body{
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 400px;
-    background-color: bisque;
+    background-color: white;
+    width: 370px;
     padding: 20px;
     border-radius: 8px;
 }
+.order-confirmed-text{
+    font-size:28px;
+    font-weight: 700;
+    margin: 0px;
+    margin-top: 20px;
+}
+.enjoy-your-food-text{
+    color: hsl(7, 20%, 60%);
+    margin-bottom: 26px;
+}
+.confirm-price-container{
+    display: flex;
+    gap: 15px;
+}
+.amount-of-product{
+    color:hsl(14, 86%, 42%);
+    font-weight:600;
+}
+.confirm-price-item{
+    color: hsl(7, 20%, 60%);
+}
+.confirm-total-sum-item{
+    color: hsl(12, 20%, 44%);
+}
+/**Confirmation Alert Style*/
+
 .confirm-item-container{
     display: flex;
+    padding-left: 10px;
+    padding: 5px;
+    align-items: center;
+    border-bottom: rgb(243, 243, 243) solid 2px;
 }
+.confirm-image-item img{
+    width: 50px;
+    border-radius: 6px;
+}
+.confirm-name-item{
+    padding-left: 20px;
+    width: 70%;
+    padding-left: 16px;
+}
+.confirm-name-item p{
+    margin: 2px;
+    text-align: left;
+}
+.confirm-price-box{
+    margin: 7px;
+    font-weight: 500;
+}
+.whole-sum-container{
+    margin: 15px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.whole-sum-item{
+    padding-right: 23px;
+}
+.start-new-order-button{
+    display: flex;
+    align-items: center;
+    background-color: hsl(14, 86%, 42%);
+    border-radius: 30px;
+    margin: 0px;
+    width: 160px;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    height: 38px;
+    border: 1px solid hsl(14, 86%, 42%);
+    color: white;
+    font-size: 16px;
+}
+
 .overlay{
     display: none;
     position: fixed;
@@ -122,6 +194,7 @@ body{
     gap: 10px;
     font-weight: 500;
 }
+
 .name-item{
     font-weight: 700;
 }
